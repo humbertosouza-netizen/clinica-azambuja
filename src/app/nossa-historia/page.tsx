@@ -109,8 +109,8 @@ export default function NossaHistoriaPage() {
             <FaQuoteLeft className="text-primary/30 text-4xl mx-auto mb-6" />
             <blockquote>
               <p className="text-white text-xl md:text-2xl font-light italic mb-6">
-                "Nossa maior realização é ver o sorriso e a confiança renovada em cada paciente após um tratamento. 
-                Mais do que procedimentos estéticos, oferecemos uma nova perspectiva de autoestima e bem-estar."
+                &quot;Nossa maior realização é ver o sorriso e a confiança renovada em cada paciente após um tratamento. 
+                Mais do que procedimentos estéticos, oferecemos uma nova perspectiva de autoestima e bem-estar.&quot;
               </p>
               <footer className="text-white/70">
                 <cite>Dra. Azambuja, Fundadora e Diretora Clínica</cite>

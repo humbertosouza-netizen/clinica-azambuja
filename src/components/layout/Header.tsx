@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaInstagram, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
@@ -32,7 +32,7 @@ export const Header = () => {
   }, []);
   
   // Controlador de menu mobile com preservação de posição
-  const openMobileMenu = () => {
+  const openMobileMenu = useCallback(() => {
     const currentScrollPosition = window.pageYOffset;
     setScrollPosition(currentScrollPosition);
     
@@ -43,9 +43,9 @@ export const Header = () => {
     document.documentElement.style.width = '100%';
     
     setIsMobileMenuOpen(true);
-  };
+  }, []);
   
-  const closeMobileMenu = () => {
+  const closeMobileMenu = useCallback(() => {
     // Restaurar o scroll
     document.documentElement.style.overflow = '';
     document.documentElement.style.position = '';
@@ -54,15 +54,15 @@ export const Header = () => {
     window.scrollTo(0, scrollPosition);
     
     setIsMobileMenuOpen(false);
-  };
+  }, [scrollPosition]);
   
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = useCallback(() => {
     if (isMobileMenuOpen) {
       closeMobileMenu();
     } else {
       openMobileMenu();
     }
-  };
+  }, [isMobileMenuOpen, closeMobileMenu, openMobileMenu]);
 
   // Fechar menu ao mudar de rota
   useEffect(() => {
@@ -74,7 +74,7 @@ export const Header = () => {
 
     window.addEventListener('popstate', handleRouteChange);
     return () => window.removeEventListener('popstate', handleRouteChange);
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, closeMobileMenu]);
 
   // Fechar menu ao redimensionar
   useEffect(() => {
@@ -86,7 +86,7 @@ export const Header = () => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, closeMobileMenu]);
 
   // Limpar estilos caso o componente seja desmontado com o menu aberto
   useEffect(() => {

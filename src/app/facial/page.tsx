@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft, FaCheckCircle } from 'react-icons/fa';
@@ -90,7 +90,7 @@ export default function FacialPage() {
   const treatmentRefs = useRef<{[key: string]: HTMLDivElement | null}>({});
 
   // Função para rolar suavemente até o tratamento selecionado
-  const scrollToTreatment = (treatmentId: string) => {
+  const scrollToTreatment = useCallback((treatmentId: string) => {
     if (treatmentRefs.current[treatmentId]) {
       const yOffset = -100; // ajuste para considerar o cabeçalho fixo
       const element = treatmentRefs.current[treatmentId];
@@ -101,14 +101,14 @@ export default function FacialPage() {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
 
   // Efeito para rolar até o tratamento quando um é selecionado
   useEffect(() => {
     if (selectedTreatment) {
       scrollToTreatment(selectedTreatment);
     }
-  }, [selectedTreatment]);
+  }, [selectedTreatment, scrollToTreatment]);
 
   // Função que lida com o clique no botão de tratamento
   const handleTreatmentClick = (treatmentId: string) => {

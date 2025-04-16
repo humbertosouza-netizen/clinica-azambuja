@@ -15,7 +15,7 @@ const testimonials = [
     name: 'Amanda S.',
     procedure: 'Harmonização Facial',
     image: placeholderImage,
-    quote: 'Minha autoestima transformou completamente após o tratamento. A Dra. Eliziane é incrível e seus resultados são muito naturais.',
+    quote: 'Minha autoestima mudou completamente após os procedimentos. A equipe é incrível e os resultados superaram minhas expectativas.',
     video: '#',
   },
   {
@@ -84,7 +84,7 @@ export const TestimonialsSection = () => {
             <FaQuoteLeft className="text-primary/20 text-6xl absolute top-6 left-6" />
             <div className="relative z-10">
               <p className="text-white text-xl mb-6 italic">
-                "{activeTestimonial.quote}"
+                &quot;{activeTestimonial.quote}&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-16 h-16 relative rounded-full overflow-hidden mr-4">

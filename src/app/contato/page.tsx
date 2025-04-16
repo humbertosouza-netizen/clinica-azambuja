@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowLeft, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaClock } from 'react-icons/fa';
+import { FaArrowLeft, FaWhatsapp, FaMapMarkerAlt, FaEnvelope, FaClock } from 'react-icons/fa';
 import { Button } from '@/components/ui/Button';
 
 // Placeholder fallback
@@ -248,9 +248,9 @@ export default function ContatoPage() {
                     className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-white"
                   >
                     <option value="">Selecione um serviço</option>
-                    <option value="facial">Harmonização Facial</option>
-                    <option value="corporal">Estética Corporal</option>
-                    <option value="intima">Harmonização Íntima</option>
+                    <option value="harmonizacao-facial">Harmonização Facial</option>
+                    <option value="estetica-corporal">Estética Corporal</option>
+                    <option value="estetica-intima">Estética Íntima</option>
                     <option value="outro">Outro</option>
                   </select>
                 </div>
@@ -265,108 +265,21 @@ export default function ContatoPage() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-white resize-none"
-                    placeholder="Descreva sua dúvida ou solicitação..."
+                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-white"
+                    placeholder="Descreva o que você procura..."
                   ></textarea>
                 </div>
                 
                 <Button 
                   type="submit" 
                   variant="primary" 
-                  size="lg" 
-                  className="w-full"
                   disabled={isSubmitting}
+                  className="w-full"
                 >
                   {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </Button>
-                
-                <p className="text-white/50 text-sm text-center">
-                  Ao enviar, você concorda com nossa política de privacidade e termos de uso.
-                </p>
               </form>
             )}
-          </div>
-        </div>
-        
-        {/* Perguntas Frequentes */}
-        <section className="mb-16">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="heading-md text-white mb-6">Perguntas Frequentes</h2>
-            <p className="text-white/80">
-              Encontre respostas para as dúvidas mais comuns sobre nossos procedimentos e atendimentos.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Como agendar uma avaliação?</h3>
-              <p className="text-white/80 mb-6">
-                Você pode agendar uma avaliação entrando em contato pelo WhatsApp, telefone,
-                preenchendo o formulário nesta página ou clicando nos botões de agendamento.
-              </p>
-            </div>
-            
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Quanto tempo duram os procedimentos?</h3>
-              <p className="text-white/80 mb-6">
-                Os procedimentos são personalizados para cada paciente e podem
-                durar entre 30 minutos e 2 horas. Na avaliação inicial, informaremos
-                detalhadamente o tempo estimado para seu caso.
-              </p>
-            </div>
-            
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Os procedimentos são dolorosos?</h3>
-              <p className="text-white/80 mb-6">
-                Utilizamos técnicas minimamente invasivas e, quando necessário, 
-                aplicamos anestesia local para garantir conforto durante os procedimentos. 
-                A maioria dos pacientes relata desconforto mínimo.
-              </p>
-            </div>
-            
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Quais formas de pagamento são aceitas?</h3>
-              <p className="text-white/80">
-                Aceitamos pagamento em dinheiro, cartões de crédito e débito, 
-                PIX e oferecemos opções de parcelamento em até 12x no cartão 
-                de crédito para tratamentos específicos.
-              </p>
-            </div>
-            
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Posso ver resultados de outros pacientes?</h3>
-              <p className="text-white/80 mb-6">
-                Sim, durante sua avaliação apresentamos casos similares ao seu,
-                respeitando a confidencialidade dos pacientes. Você poderá ver
-                exemplos reais dos resultados que podemos alcançar.
-              </p>
-            </div>
-            
-            <div className="bg-background/30 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-primary text-lg font-medium mb-2">Quanto tempo para ver resultados?</h3>
-              <p className="text-white/80">
-                Cada caso é individual e será detalhado em sua avaliação.
-                Daremos todas as informações necessárias sobre resultados, 
-                durabilidade e manutenção.
-              </p>
-            </div>
-          </div>
-        </section>
-        
-        {/* Call to Action */}
-        <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 md:p-12 text-center">
-          <h2 className="heading-md text-white mb-4">Agende sua Avaliação</h2>
-          <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Dê o primeiro passo para realçar sua beleza natural. Nossa avaliação inicial inclui 
-            avaliação detalhada e plano de tratamento personalizado para suas necessidades.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg">
-              Agendar por WhatsApp
-            </Button>
-            <Button variant="outline" size="lg">
-              Ligar para a Clínica
-            </Button>
           </div>
         </div>
       </div>
